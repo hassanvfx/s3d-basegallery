@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
-
+import S3DBaseGallery
+import S3DCoreModels
 
 @main
 struct DemoAppApp: App {
     var body: some Scene {
         WindowGroup {
-            GalleryView()
+            GalleryView(items: Seed.galleryItems){ item in
+                UIApplication.presentAlert(title: "tapped", message: item.title ?? "")
+            }
         }
     }
 }
